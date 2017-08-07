@@ -1,0 +1,113 @@
+//colors:
+$gray: #000;
+$black: #1f1f1f;
+$white: #fff;
+$light-blue: #5483c8; //#4485cd
+$blue: #3d5ab9;
+$green: #94bc90;
+$light-grey: #b1aaaa; //disabled button text
+$dark-gray: #242121;
+$med-gray: #464a4d; //main gray color
+$gray2: #e8dfdf;
+$gray3: #a5abad; //a5abad
+$gray4: #54585f; //disabled button
+$grey5: #dcdee0; //light grey
+
+$edit-icon-border: #798189;
+$almost-white: #fefdfd;
+$input-border: #cccccc; // input border-color  account 
+
+//menu
+$menu-item: #939090;
+$bg-hover-menu-item: #484d51;
+$active-menu-item: #fff;
+// end menu
+
+
+//main colors
+$main-blue: #4485cd;
+$header-light: #ddebf9;
+$sub-text-color: #dcd0d0;
+$project-text: #787878;
+//end main color
+
+$column-bg: #dcdee0;
+
+
+//buttons
+$grey-btn: #787878;
+//end buttons
+
+//usage page
+$pink: #e56368;
+$light-green: #78b475;
+$dark-yellow: #ada74b;
+$blue-circle: #4c78b8;
+$circle-size: 100px;
+$circle-text-size: 16px;
+$table-header-text-color: #acacac;
+$letter-spacing-td: 0.5px;
+//end usage
+
+
+//font-family
+
+$base-font-sans-serif: 'Gotham Book',  'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+$base-light-font-sans-serif: 'Gotham Light', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+$base-medium-font-sans-serif: 'Gotham Medium', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+
+// Body
+$base-font: 11px;
+$sub-base-font: 10px;
+$subheader-font: 11px;
+$font-required: 9px; //alos used on usage page table header
+$header: 16px; //h1, h2, 
+
+//letter-spacing
+$letter-spacing: 1px;
+$button-letter-spacing: 0px;
+$letter-spacing-text: 0.1px;
+
+
+$base-text-color: $gray !default;
+$base-background-color: $white !default;
+$font-size-base: 14px !default;
+$line-height-base: 1.2 !default;
+$base-font-family: $base-font-sans-serif !default;
+
+$vertical-rhythm: ($line-height-base * 1em);
+
+$base-min-width: 320px;
+
+// Liks
+$base-link-color: $light-blue;
+
+// Buttons 
+$btn-color: $white !default;
+$btn-background: $light-blue !default;
+$btn-padding: 0.4em 0.7em !default;
+$btn-font-size: inherit !default;
+
+// Forms
+$form-element-padding: $btn-padding !default;
+$form-element-border-color: $gray !default;
+$form-element-focus-border-color: $black !default;
+$placeholder-color: $gray !default;
+
+// Headers
+$h1-font-size: 30px !default;
+$h2-font-size: 27px !default;
+$h3-font-size: 24px !default;
+$h4-font-size: 21px !default;
+$h5-font-size: 17px !default;
+$h6-font-size: 15px !default;
+
+$headings-font-family: inherit !default;
+$headings-color: inherit !default;
+
+
+$animation-speed: 0.3s;
+
+$border-radius: 3px;
+
+$line-height: 18px;

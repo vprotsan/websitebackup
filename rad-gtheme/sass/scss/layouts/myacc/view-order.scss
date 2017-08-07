@@ -1,0 +1,34 @@
+
+
+.woocommerce-page.woocommerce-view-order,
+.woocommerce-checkout,
+.woocommerce-cart {
+
+	.woocommerce-order-details {
+		padding-top: 20px;
+	}
+
+	h2, 
+	h3 {
+		@include subheader-font;
+		text-transform: uppercase;
+	}
+
+	.woocommerce table.shop_table {
+		border: 1px;
+		padding-left: 20px;
+	}
+
+	.woocommerce table.shop_table th,
+	.woocommerce table.shop_table td {
+		padding: 20px 12px 20px 0;
+		font-weight: normal;
+		text-align: left;
+	}
+
+	td, 
+	th {
+		border: 0;
+		text-align: left;
+	}
+}

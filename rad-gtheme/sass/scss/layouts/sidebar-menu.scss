@@ -1,0 +1,193 @@
+#sidebar {
+	z-index:10;
+
+	@include animate(width);
+	background: #262626;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 177px;
+
+	@include media("<desktop") {
+		//width: 50px;
+		width: 0;
+		overflow: hidden;
+
+		.active & {
+			width: 200px;
+
+			.btn {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	// @include media("<tablet") {
+	// 	width: 0;
+	// }
+
+	.logo {
+		@include animate(padding);
+
+		display: block;
+		background: $main-blue;
+		height: 72px;
+		padding: 18px 0 0 22px;
+		white-space: nowrap;
+
+		@include media("<desktop") {
+			display: block;
+			padding: 30px 0 0 10px;
+		}
+	}
+
+	.slogan {
+		position: relative;
+		bottom: 12px;
+		display: inline-block;
+		font-family: $base-medium-font-sans-serif;
+		font-size: $base-font;
+		color: $white;
+		letter-spacing: 3.5px;
+		vertical-align: bottom;
+		padding-left: 5px;
+		text-transform: uppercase;
+
+		// @include media("<desktop") {
+		// 	font-size: 9px;
+		// 	letter-spacing: 1.5px;
+		// }
+	}
+
+	.nav {
+		margin: 18px 0 30px;
+		padding: 0;
+		list-style: none;
+		font-size: $base-font;
+		font-family: $base-medium-font-sans-serif;
+		white-space: nowrap;
+		text-transform: uppercase;
+
+		@include media("<tablet") {
+			margin: 10px 0 30px;
+		}
+
+		li {
+			padding-left: 24px;
+			@include animate(background);
+			@include animate(border-left);
+
+			&:hover,
+			&:active,
+			&.active {
+				background: $bg-hover-menu-item;
+				border-left: 6px solid $main-blue;
+				text-decoration: none;
+				//margin-right: -3px;
+			}
+
+			&:hover a,
+			&:active a,
+			&.active a {
+				color: $active-menu-item;
+				margin-left: -6px;
+			}
+
+			&:hover .ico,
+			&:active .ico,
+			&.active .ico {
+				//left: -6px;
+				opacity: 1;
+
+
+			}
+
+			// &.active {
+			// 	//background: $bg-hover-menu-item;
+
+			// 	 a {
+			// 	 	color: $active-menu-item;
+			// 	 	//background: $bg-hover-menu-item;
+			// 		//font-size: 10px;
+			// 		//font-family: $base-font-sans-serif;
+			// 	 }
+				
+			// 	.ico {
+			// 		//border-color: $light-blue;
+			// 		opacity: 1;
+			// 		@include animate(opacity);
+			// 	}
+			// }
+
+			a {
+				display: block;
+				position: relative;
+				color: $menu-item;
+				font-size: $base-font;
+				font-family: $base-medium-font-sans-serif;
+				font-weight: 400;
+				letter-spacing: 0.1px;
+				text-decoration: none;
+				padding: 18px 10px 18px 0;
+				
+				         //max width: 1023px
+				@include media("<desktop") {
+					padding-left: 10px;
+				}
+
+				&:hover {
+					text-decoration: none;
+					//background: rgba(239, 239, 239, .2);
+				}
+			}//end 
+
+			.ico {
+				display: inline-block;
+				//border: 1px solid $white;
+				//border-radius: 50%;
+				//width: 26px;
+	    		//height: 26px;
+	    		margin: 0 15px 1px 0;
+	    		opacity: 0.44;
+				position: relative;
+				vertical-align: middle;
+				
+				img {
+					width: 26px;
+					height: 26px;
+					//position: absolute;
+					//left: 50%;
+					//top: 50%;
+					//transform: translate(-50%, -50%);
+				}
+			}//end ico img
+
+		}//end li
+	}
+
+	.btn {
+		position: absolute;
+		bottom: 30px;
+		bottom: 6%;
+		left: 15px;
+		right: 15px;
+		background: $grey-btn;
+		color: $white;
+		font-size: $base-font;
+		font-family: $base-font-sans-serif;
+		letter-spacing: 0.1px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 132px;
+		min-width: auto;
+        padding: 8px 15px;
+        text-transform: none;
+
+		@include media("<desktop") {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}//end sidebar

@@ -1,0 +1,161 @@
+
+///rad/checkout/order-received/
+
+.woocommerce-order-received {
+
+	#content {
+
+			.description-block {
+				max-width: 700px;
+
+				p {
+					margin-bottom: 33px;
+				}
+			}
+
+			.woocommerce ul.order_details {
+				padding: 0;
+
+				li {
+					border-right: 0;
+			    	@include subheader-font;
+			    	text-transform: capitalize;
+			    	padding: 0;
+			    	margin: 0;
+			    	width: 25%;
+
+					strong {
+						line-height: 2;
+						font-size: inherit;
+					}
+				}
+			}
+	}
+
+}
+
+#stripe-card-expiry {
+	width: 100px;
+}
+
+///rad/checkout/
+.woocommerce-page.woocommerce-checkout {
+
+	#content {
+
+		.description-block {
+			padding-top: 30px;
+		}
+
+	}
+	
+
+	li.wc_payment_method > label {
+		display: none;
+	}
+
+	#payment {
+
+		#wc-stripe-cc-form {
+			input {
+				width: 69%;
+			}
+
+			p.form-row.woocommerce-SavedPaymentMethods-saveNew {
+				transform: translateY(100%);
+			}
+
+			#stripe-card-expiry {
+				width: 100px;
+			}
+		}
+
+		div.payment_box {
+			background: none;
+
+			&::before {
+				border: 0;
+			}
+		}
+
+		ul.woocommerce-SavedPaymentMethods {
+			padding-left: 0;  
+
+			li label {
+				float: none;
+				//width: 100%;
+			}
+
+			li.woocommerce-SavedPaymentMethods-token,
+			li.woocommerce-SavedPaymentMethods-new {
+				label {
+					width: auto;
+				}
+			}
+		}
+	}
+
+	.col2-set {
+		margin-top: 5em;
+
+			.col-2 {
+				width: auto;
+			}
+
+			.col-1 {
+				width: 100%;
+
+				.woocommerce-billing-fields .form-row {
+						label {
+							display: block;
+							float: left;
+							width: 30%;
+						}
+
+						input,
+						.select2 {
+							display: block;
+							float: right;
+							width: 70%;
+						}
+
+						.select2 {
+							width: 70%!important;
+						}
+
+						.select2-container .select2-selection--single {
+							height: 36px;
+						}
+				}
+			}
+		}
+
+		.woocommerce-billing-fields__field-wrapper {
+			display: none;
+		}
+
+		.woocommerce-billing-fields__field-wrapper.show {
+			display: block;
+		}
+
+		.woocommerce-billing-fields h3{
+			cursor: pointer;
+			position: relative;
+
+			&.arrow-down:after {
+				transform: rotate(90deg);
+			}
+
+			&:after {
+				position: absolute;
+				content: '';
+				top: 1px;
+    			left: 115px;
+    			border-top: 5px solid transparent;
+    			border-left: 6px solid $med-gray;
+    			border-bottom: 5px solid transparent;
+				width: 0px;
+				height: 0px;
+			}	
+		}
+}

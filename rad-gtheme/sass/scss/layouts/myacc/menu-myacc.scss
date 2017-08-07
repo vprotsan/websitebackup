@@ -1,0 +1,81 @@
+.woocommerce-page.woocommerce-account{
+
+	#content .description-block {
+		padding-top: 29px;
+	}
+
+	.woocommerce-MyAccount-navigation {
+		width: 20%; 
+
+		ul {
+			border-right: 2px solid $main-blue;
+			list-style: none;
+			max-width: 219px;
+			padding-left: 2em;
+			width: 100%;
+		}
+
+		ul li {
+			@include subheader-font;
+			background-size: 20px 20px;
+			background-repeat: no-repeat;
+		    letter-spacing: 0;
+			padding-left: 3.6em;
+			padding-top: 2em;
+    		padding-bottom: 2em;
+			text-transform: uppercase;
+			@include animate(background);
+
+			&:first-child {
+				background: url(../images/myacc/my-profile.svg) no-repeat 0% 27%;
+				padding-top: 1em;
+			}
+
+			&:nth-child(2) {
+				background: url(../images/myacc/my-transactions.svg) no-repeat 0% 50%;
+			}
+
+			&:nth-child(3) {
+				background: url(../images/myacc/payment.svg) no-repeat 0% 50%;
+			}
+
+			&:nth-child(4) {
+				background: url(../images/myacc/billing.svg) no-repeat 0% 70%;
+				background-size: 20px 20px;
+				padding-bottom: 1em;  
+			}
+
+			&:hover a,
+			&.is-active a {
+				color: $main-blue;
+				text-decoration: none;
+			}
+
+			&:hover:first-child,
+			&.is-active:first-child {
+				background: url(../images/myacc/hover/my-profile.svg) no-repeat 0% 27%;
+			}
+
+			&:hover:nth-child(2),
+			&.is-active:nth-child(2) {
+				background: url(../images/myacc/hover/my-transactions.svg) no-repeat 0% 50%;
+			}
+
+			&:hover:nth-child(3),
+			&.is-active:nth-child(3) {
+				background: url(../images/myacc/hover/payment.svg) no-repeat 0% 50%;
+			}
+
+			&:hover:nth-child(4),
+			&.is-active:nth-child(4) {
+				background: url(../images/myacc/hover/billing.svg) no-repeat 0% 70%;
+				background-size: 20px 20px;
+			}
+
+			a {
+				color: $med-gray;
+				@include animate(color);
+			}
+		}
+	}
+}

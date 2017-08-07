@@ -1,0 +1,19 @@
+%buttons {
+	display: block;
+	background: $green;
+	border-radius: $border-radius;
+	color: #fff;
+	@include subheader-font;
+	font-size: $sub-base-font;
+	float: none;	    
+	max-width: 270px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	@include transition(all, 0.3s, linear);
+
+	&:hover {
+	    	background: darken($green, 10%);
+	    }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RAD ADVANCED</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.12.4.min.js" defer><\/script>')</script>
+	<script type="text/javascript" src="js/jquery.main.js" defer></script>
+	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+	<script>
+		var client = filestack.init('A8mpacA2BQNiEeDlrvDtBz');
+		function showPicker() {
+			client.pick({
+			}).then(function(result) {
+				console.log(JSON.stringify(result.filesUploaded))
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<header class="top-bar">
+			<a href="#" class="opener"><span>menu</span></a>
+			<div class="drop-holder">
+				<a href="#sign-popup" class="lightbox btn">Sign in</a>
+				<span class="opener-holder"><span>Anna</span> <a href="#" class="drop-opener"></a></span>
+				<div class="drop">
+					<ul>
+						<li><a href="#"><i class="fa fa-sun-o" aria-hidden="true"></i> Settings</a></li>
+						<li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i> Billing</a></li>
+						<li><a href="#"><i class="fa fa-question" aria-hidden="true"></i> Help</a></li>
+						<li><a href="#">Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div id="content">
+			<div class="heading">
+				<h1>USAGE</h1>
+			</div>
+			<div class="description-block">
+				<p>CURRENT PACKAGE: <strong>ADVANCED</strong></p>
+			</div>
+			<div class="main-content">
+				<div class="usage-columns">
+					<div class="column pink">
+						<div class="circle">
+							<span class="text">35</span>
+						</div>
+						<div class="total-info">
+							<span class="info">PROJECTS</span>
+						</div>
+					</div>
+					<div class="column green">
+						<div class="circle">
+							<span class="text">733</span>
+						</div>
+						<div class="total-info">
+							<span class="info">TOTAL SCANS</span>
+						</div>
+					</div>
+					<div class="column gold">
+						<div class="circle">
+							<span class="text">72:10 <span>(mm:ss)</span></span>
+						</div>
+						<div class="total-info">
+							<span class="info">TOTAL PLAYTIME</span>
+						</div>
+					</div>
+					<div class="column blue">
+						<div class="circle">
+							<span class="text">62</span>
+						</div>
+						<div class="total-info">
+							<span class="info">CREDIT BALANCE</span>
+						</div>
+					</div>
+				</div>
+				<div class="history-block">
+					<strong class="history-title">USAGE HISTORY</strong>
+					<div class="responsive-table">
+						<table class="history-table">
+							<tr>
+								<td>
+									<img src="images/ico-download.png" alt="download">
+								</td>
+								<td>
+									<strong>09 Nov 2016</strong>
+									<span>date created</span>
+								</td>
+								<td>
+									<strong>Jazz Dance</strong>
+									<span>project</span>
+								</td>
+								<td>
+									<strong>6</strong>
+									<span>scan no.</span>
+								</td>
+								<td>
+									<strong>12</strong>
+									<span>credits used</span>
+								</td>
+								<td>
+									<strong>03:52</strong>
+									<span>playtime</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="images/ico-download.png" alt="download">
+								</td>
+								<td>
+									<strong>09 Nov 2016</strong>
+									<span>date created</span>
+								</td>
+								<td>
+									<strong>Jazz Dance</strong>
+									<span>project</span>
+								</td>
+								<td>
+									<strong>6</strong>
+									<span>scan no.</span>
+								</td>
+								<td>
+									<strong>12</strong>
+									<span>credits used</span>
+								</td>
+								<td>
+									<strong>03:52</strong>
+									<span>playtime</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<div class="logo">
+				<a href="#">
+					<img src="images/logo.png" alt="rad">
+					<span class="slogan">advanced</span>
+				</a>
+				</div>
+			<ul class="nav">
+				<li class="active">
+					<a href="#">
+						<span class="ico"><img src="images/img-create.png" alt="create"></span>
+						Create
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-projects.png" alt="projects"></span>
+						Projects
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-usage.png" alt="usage"></span>
+						Usage
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-guide.png" alt="guide"></span>
+						Guide
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-faq.png" alt="faq"></span>
+						FAQ
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-coming.png" alt="coming soon"></span>
+						coming soon
+					</a>
+				</li>
+			</ul>
+			<a href="#" class="btn white">Upgrade</a>
+		</aside>
+		<div id="sign-popup" class="popup">
+			<div class="holder">
+				<h1>Let’s Get Started!</h1>
+				<form action="" method="post">
+					<p><input name="email" required="required" placeholder="name@company.com" type="email" class="form-control"></p>
+					<p><input name="rad_signup" value="sign up for free" type="submit" class="btn green"></p>
+					<input id="rad_reg_field" name="rad_reg_field" value="503f2bda75" type="hidden"><input name="_wp_http_referer" value="/rad/signup/" type="hidden">
+				</form>
+				<span class="text">Already have an account? <a href="#">Log in.</a></span>
+				<a href="#" class="close"></a>
+			</div>
+			<span class="overlay"></span>
+		</div>
+		<div id="welcome-popup" class="popup">
+			<div class="holder">
+				<div class="heading">
+					<h1>Welcome to RAD!</h1>
+				</div>
+				<p>We’re pumped to get you going.</p>
+				<div class="container">
+					<a href="#" class="link">CHECK OUT SAMPLE RESULTS</a>
+					<span class="or">- OR - </span>
+					<a href="#" class="link green">CREATE A PROJECT</a>
+					<span class="or">- OR - </span>
+					<a href="#" class="link">CHECK OUT THE GUIDE</a>
+				</div>
+				<a href="#" class="close"></a>
+			</div>
+			<span class="overlay"></span>
+		</div>
+	</div>
+</body>
+</html>

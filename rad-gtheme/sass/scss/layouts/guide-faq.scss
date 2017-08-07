@@ -1,0 +1,166 @@
+
+
+.page-template-guide  {
+
+	#content {
+		.usage-columns .column.pink {
+			    padding: 0 0 36px 55px;
+			} 
+
+		.main-content {
+			max-width: 756px;
+		}
+    }
+}
+
+.page-template-faq,
+.page-template-guide {
+	#content {
+		.description-block {
+			min-height: 0;
+			padding: 0;
+			margin: 0;
+		}
+
+		.total-info p:first-child {
+			padding-top: 1em;
+		}
+	}
+}
+
+.page-template-updates,
+.page-template-faq {
+
+	#content {
+
+		.main-content {
+			@extend %flexbox;
+			padding-top: 37px;
+
+			.question-themes,
+			.updates-filter {
+				border-right: 2px solid $main-blue;
+				width: 24.6%;
+
+				#q-themes,
+				ul {
+					list-style: none;
+
+					li a {
+						@include subheader-font;
+						color: $med-gray;
+						line-height: 36px;
+						text-transform: uppercase;
+					}
+
+					li.active a,
+					li a.active {
+						color: $main-blue;
+					}
+				}
+			}
+
+			.question-answers,
+			.update-posts {
+				width: 70%;
+
+				.tab-content {
+					padding-left: 5.1em;
+				}
+
+				.tab-pane {
+					display: none;
+
+					&.active {
+						display: block;
+					}
+
+					.q-title {
+						@include subheader-font;
+						color: $main-blue;
+						cursor: pointer;
+						line-height: 36px;
+						
+						.fa {
+							padding-left: 1em;
+						}
+					}
+
+					.q-answer {
+						display: none;
+						line-height: $line-height;
+					}
+				}
+
+				.posted-month {
+					@include subheader-font;
+					font-size: $header;
+				}
+			}//end update posts
+			.update-posts {
+				padding-left: 5.1em;
+
+				.pill {
+					@include subheader-font;
+					display: inline-block;
+					//color: #fff;
+    				border-radius: 20px;
+					//min-width: 50px;
+				    margin-right: 5px;
+				    vertical-align: middle;
+				    cursor: default;
+				    pointer-events: none;
+				    text-shadow: none!important;
+				    line-height: 1.6;
+				    //font-size: 9px;
+    				//letter-spacing: 0.4px;
+				   	padding: 0px 5px;
+					//background-color: #eb4d5c;
+    				//border: 1px solid #eb4d5c;
+
+    				&-Updates {
+    					background-color: #eb4d5c;
+    				    border: 1px solid #eb4d5c;
+    				    color: #fff;
+    				}
+
+    				&-APIs {
+    					//background-color: #2ab27b;
+    				    border: 1px solid #2ab27b;
+    				    color: #2ab27b;
+    				}
+
+				}
+
+				.update {
+					margin-bottom: 1em;
+
+					p {
+						display: inline;
+						line-height: 1.6;
+					}
+				}
+			}
+
+		}
+
+		.columns {
+			padding: 0;
+		}
+	}
+}
+
+.page-template-updates {
+	.updates-filter {
+		//width: 30%;
+
+		a {
+			display: block;
+		}
+	}
+
+	.update-posts {
+		//width: 70%;
+		//float: left;
+	}
+}

@@ -1,0 +1,58 @@
+.woocommerce-payment-methods .woocommerce-MyAccount-content,
+.woocommerce-page.woocommerce-orders {
+
+	table {
+		border: none;
+				 
+		th {
+			border: 0;
+			color: $med-gray;
+			font-family: $base-medium-font-sans-serif;
+			font-size: $base-font;
+			font-weight: normal;
+			text-align: left;
+			padding: 11px 12px 19px;
+		}
+
+		tr td,
+		tr th {
+			border-bottom: 1px solid $gray2;
+		}
+
+		td {
+			border: 0;
+			padding: 13px 12px;
+		}
+
+		.woocommerce-orders-table__header::first-letter {
+			text-transform: uppercase;
+		}
+
+		.payment-method-method {
+			width: 31.571%;
+			max-width: 227px;
+		}
+
+		.payment-method-expires {
+			width: 30.18181%;
+			max-width: 217px;
+		}
+
+		.payment-method-actions {
+			width: 38.247%;
+			max-width: 275px;
+
+			a.button {
+				padding: 10px 17px;
+			}
+
+			a.button.delete {
+		        float: left;
+			}
+
+			a.button.default {
+				float: right;
+			}
+		}
+	}
+}

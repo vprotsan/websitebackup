@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RAD ADVANCED</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.12.4.min.js" defer><\/script>')</script>
+	<script type="text/javascript" src="js/jquery.main.js" defer></script>
+	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+	<script>
+		var client = filestack.init('A8mpacA2BQNiEeDlrvDtBz');
+		function showPicker() {
+			client.pick({
+			}).then(function(result) {
+				console.log(JSON.stringify(result.filesUploaded))
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<header class="top-bar">
+			<a href="#" class="opener"><span>menu</span></a>
+			<div class="drop-holder">
+				<a href="#sign-popup" class="lightbox btn">Sign in</a>
+				<span class="opener-holder"><span>Anna</span> <a href="#" class="drop-opener"></a></span>
+				<div class="drop">
+					<ul>
+						<li><a href="#"><i class="fa fa-sun-o" aria-hidden="true"></i> Settings</a></li>
+						<li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i> Billing</a></li>
+						<li><a href="#"><i class="fa fa-question" aria-hidden="true"></i> Help</a></li>
+						<li><a href="#">Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div id="content">
+			<div class="heading">
+				<h1>Projects: JAZZ DANCE</h1>
+			</div>
+			<div class="responsive-table">
+				<table class="info-table">
+					<tr>
+						<th>SCAN</th>
+						<th>CREATED</th>
+						<th>PLAYTIME</th>
+						<th>SCENE</th>
+						<th>NOTES</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td>Scan 6</td>
+						<td>11 FEB 2017</td>
+						<td>00:14 (mm:ss)</td>
+						<td>BROOKLYN ACADEMY OF MUSIC</td>
+						<td>DAY 2 / TAKE 3</td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="main-content">
+				<div class="create-block">
+					<h1>CREATE A PROJECT</h1>
+					<p>… or select an existing project…</p>
+					<form action="#" class="form">
+						<div class="dropdown">
+							<p><input type="text" class="form-control" placeholder="Project Name" required></p>
+							<ul class="projects-list">
+								<li><a href="#">Dance with me</a></li>
+								<li><a href="#">Jazz Dance</a></li>
+								<li><a href="#">Polar Dance</a></li>
+							</ul>
+						</div>
+						<p><input type="text" class="form-control" placeholder="Scene (Optional)"></p>
+						<p><input type="text" class="form-control" placeholder="Notes (Optional)"></p>
+						<p><input type="submit" class="btn green" value="CONTINUE"></p>
+					</form>
+				</div>
+				<div class="twocolumns">
+					<aside class="left-column">
+						<h2>Upload</h2>
+						<div class="upload-info uploaded">
+							<input type="button" value="+" onclick="showPicker()" class="upload">
+							<div class="video-holder">
+								<a href="#"><img src="images/image-thumbnail.jpg" alt="uploaded"></a>
+								<span class="upload-check"><img src="images/img-upload-check.png" alt="upload check"></span>
+							</div>
+						</div>
+						<div class="btn-holder">
+							<a href="#" class="btn white">REPLACE</a>
+						</div>
+					</aside>
+					<div class="right-column">
+						<h2>Results</h2>
+						<div class="columns-holder">
+							<div class="column">
+								<h3>Raw Data</h3>
+								<div class="progress-holder completed">
+									<div class="progress-box">
+										<span class="percent-text">89%</span>
+									</div>
+									<div class="video-holder">
+										<a href="#"><img src="images/image-thumbnail.jpg" alt="uploaded"></a>
+										<a href="#" class="btn green">upgrade</a>
+									</div>
+								</div>
+								<div class="btn-holder">
+									<a href="#" class="btn">DOWNLOAD FBX</a>
+								</div>
+							</div>
+							<div class="column">
+								<h3>Clean Data</h3>
+								<div class="progress-holder completed">
+									<div class="progress-box">
+										<span class="percent-text">15%</span>
+									</div>
+									<div class="video-holder">
+										<a href="#"><img src="images/image-thumbnail.jpg" alt="uploaded"></a>
+										<a href="#" class="btn green">upgrade</a>
+									</div>
+								</div>
+								<div class="btn-holder">
+									<a href="#" class="btn">DOWNLOAD FBX</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<div class="logo">
+				<a href="#">
+					<img src="images/logo.png" alt="rad">
+					<span class="slogan">advanced</span>
+				</a>
+				</div>
+			<ul class="nav">
+				<li class="active">
+					<a href="#">
+						<span class="ico"><img src="images/img-create.png" alt="create"></span>
+						Create
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-projects.png" alt="projects"></span>
+						Projects
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-usage.png" alt="usage"></span>
+						Usage
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-guide.png" alt="guide"></span>
+						Guide
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-faq.png" alt="faq"></span>
+						FAQ
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-coming.png" alt="coming soon"></span>
+						coming soon
+					</a>
+				</li>
+			</ul>
+			<a href="#" class="btn white">Upgrade</a>
+		</aside>
+		<div id="sign-popup" class="popup">
+			<div class="holder">
+				<h1>Let’s Get Started!</h1>
+				<form action="" method="post">
+					<p><input name="email" required="required" placeholder="name@company.com" type="email" class="form-control"></p>
+					<p><input name="rad_signup" value="sign up for free" type="submit" class="btn green"></p>
+					<input id="rad_reg_field" name="rad_reg_field" value="503f2bda75" type="hidden"><input name="_wp_http_referer" value="/rad/signup/" type="hidden">
+				</form>
+				<span class="text">Already have an account? <a href="#">Log in.</a></span>
+				<a href="#" class="close"></a>
+			</div>
+			<span class="overlay"></span>
+		</div>
+		<div id="welcome-popup" class="popup">
+			<div class="holder">
+				<div class="heading">
+					<h1>Welcome to RAD!</h1>
+				</div>
+				<p>We’re pumped to get you going.</p>
+				<div class="container">
+					<a href="#" class="link">CHECK OUT SAMPLE RESULTS</a>
+					<span class="or">- OR - </span>
+					<a href="#" class="link green">CREATE A PROJECT</a>
+					<span class="or">- OR - </span>
+					<a href="#" class="link">CHECK OUT THE GUIDE</a>
+				</div>
+				<a href="#" class="close"></a>
+			</div>
+			<span class="overlay"></span>
+		</div>
+	</div>
+</body>
+</html>

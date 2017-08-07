@@ -1,0 +1,76 @@
+.woocommerce-page.woocommerce-account{
+
+	#content .description-block {
+		padding-top: 31px;
+	}
+
+	.woocommerce-MyAccount-navigation {
+		width: 17%;
+
+		ul {
+			border-right: 2px solid $blue;
+			list-style: none;
+			max-width: 219px;
+			padding-left: 2em;
+			width: 100%;
+		}
+
+		ul li {
+			@include subheader-font;
+		    letter-spacing: 0;
+			padding-left: 3.6em;
+			padding-top: 2em;
+    		padding-bottom: 2em;
+			text-transform: uppercase;
+			@include animate(background);
+
+			&:first-child{
+				background: url(../images/myacc/1x_03.png) no-repeat 0% 31%;
+				padding-top: 1em;
+			}
+
+			&:nth-child(2){
+				background: url(../images/myacc/1x_06.png) no-repeat 0% 50%;
+			}
+
+			&:nth-child(3){
+				background: url(../images/myacc/1x_08.png) no-repeat 0% 50%;
+			}
+
+			&:nth-child(4){
+				background: url(../images/myacc/1x_10.png) no-repeat 0% 69%;
+				padding-bottom: 1em;  
+			}
+
+			&:hover a {
+				color: $blue;
+			}
+
+			&:hover:first-child {
+				background: url(../images/myacc/hover_03.png) no-repeat 0% 31%;
+			}
+
+			&:hover:nth-child(2) {
+				background: url(../images/myacc/hover_06.png) no-repeat 0% 50%;
+			}
+
+			&:hover:nth-child(3){
+				background: url(../images/myacc/hover_08.png) no-repeat 0% 50%;
+			}
+
+			&:hover:nth-child(4){
+				background: url(../images/myacc/hover_10.png) no-repeat 0% 69%;
+			}
+
+			a {
+				color: $med-gray;
+				@include animate(color);
+
+			}
+
+			// a:hover {
+			// 	color: $blue;
+			// }
+		}
+	}
+}

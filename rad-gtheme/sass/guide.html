@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RAD ADVANCED</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.12.4.min.js" defer><\/script>')</script>
+	<script type="text/javascript" src="js/jquery.main.js" defer></script>
+	<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+	<script>
+		var client = filestack.init('A8mpacA2BQNiEeDlrvDtBz');
+		function showPicker() {
+			client.pick({
+			}).then(function(result) {
+				console.log(JSON.stringify(result.filesUploaded))
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<header class="top-bar">
+			<a href="#" class="opener"><span>menu</span></a>
+			<div class="drop-holder">
+				<a href="#sign-popup" class="lightbox btn">Sign in</a>
+				<span class="opener-holder"><span>Anna</span> <a href="#" class="drop-opener"></a></span>
+				<div class="drop">
+					<ul>
+						<li><a href="#"><i class="fa fa-sun-o" aria-hidden="true"></i> Settings</a></li>
+						<li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i> Billing</a></li>
+						<li><a href="#"><i class="fa fa-question" aria-hidden="true"></i> Help</a></li>
+						<li><a href="#">Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div id="content">
+			<div class="heading">
+				<h1>GUIDE</h1>
+			</div>
+			<div class="description-block">
+				<p>The RAD platform was developed so it can be used by anyone at any time. We can process almost anything.</p>
+				<p>But to get outstanding results as fast as possible, we provide guidance below. Enjoy!</p>
+			</div>
+			<div class="main-content">
+				<div class="usage-columns columns">
+					<div class="column pink">
+						<div class="image-holder">
+							<img src="images/ico-camera.png" alt="FIXED CAMERA / LENS">
+							<img src="images/ico-tripod.png" alt="tripod">
+						</div>
+						<div class="total-info">
+							<span class="image-title">FIXED CAMERA / LENS</span>
+							<span class="sub-title">Avoid panning, zooming and moving.</span>
+							<p>Stabilize the camera by holding it steady or mounting it on a tripod. Avoid panning, zooming or moving the camera during the shoot.</p>
+							<p>While our AI will still detect pose and motion, moving the camera, zooming or panning may negatively affect relative depth perception in your results.</p>
+						</div>
+					</div>
+					<div class="column green">
+						<div class="image-holder">
+							<img src="images/ico-frame-rate.png" alt="FRAME RATE">
+							<span class="info-text">24/30 120/240 <br>fps</span>
+						</div>
+						<div class="total-info">
+							<span class="image-title">FRAME RATE</span>
+							<span class="sub-title">Higher frame rates are better.</span>
+							<p>Generally, we recommend a minimum of 24 frames per second (fps).</p>
+							<p>For motion that is fast to the human eye (e.g. dance, action, sports, etc.), increase the fps rate to no less than 120, going up to 240 fps (and beyond) for extremely fast and complex motion.</p>
+						</div>
+					</div>
+					<div class="column gold">
+						<div class="image-holder">
+							<img src="images/ico-resolution.png" alt="RESOLUTION">
+							<span class="info-text">1080pi</span>
+						</div>
+						<div class="total-info">
+							<span class="image-title">RESOLUTION</span>
+							<span class="sub-title">Higher resolution is better.</span>
+							<p>We recommend videos with a resolution of no less than 1080p.</p>
+							<p>Lower resolutions may result in a loss of accuracy, depending on the content you’re processing.</p>
+						</div>
+					</div>
+					<div class="column blue">
+						<div class="image-holder">
+							<img src="images/ico-compression.png" alt="RESOLUTION">
+						</div>
+						<div class="total-info">
+							<span class="image-title">COMPRESSION</span>
+							<span class="sub-title">Lower compression is better.</span>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<div class="logo">
+				<a href="#">
+					<img src="images/logo.png" alt="rad">
+					<span class="slogan">advanced</span>
+				</a>
+				</div>
+			<ul class="nav">
+				<li class="active">
+					<a href="#">
+						<span class="ico"><img src="images/img-create.png" alt="create"></span>
+						Create
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-projects.png" alt="projects"></span>
+						Projects
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-usage.png" alt="usage"></span>
+						Usage
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-guide.png" alt="guide"></span>
+						Guide
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-faq.png" alt="faq"></span>
+						FAQ
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="ico"><img src="images/img-coming.png" alt="coming soon"></span>
+						coming soon
+					</a>
+				</li>
+			</ul>
+			<a href="#" class="btn white">Upgrade</a>
+		</aside>
+		<div id="sign-popup" class="popup">
+			<div class="holder">
+				<h1>Let’s Get Started!</h1>
+				<form action="" method="post">
+					<p><input name="email" required="required" placeholder="name@company.com" type="email" class="form-control"></p>
+					<p><input name="rad_signup" value="sign up for free" type="submit" class="btn green"></p>
+					<input id="rad_reg_field" name="rad_reg_field" value="503f2bda75" type="hidden"><input name="_wp_http_referer" value="/rad/signup/" type="hidden">
+				</form>
+				<span class="text">Already have an account? <a href="#">Log in.</a></span>
+				<a href="#" class="close"></a>
+			</div>
+			<span class="overlay"></span>
+		</div>
+		<div id="welcome-popup" class="popup">
+			<div class="holder">
+				<div class="heading">
+					<h1>Welcome to RAD!</h1>
+				</div>
+				<p>We’re pumped to get you going.</p>
+				<div class="container">
+					<a href="#" class="link">CHECK OUT SAMPLE RESULTS</a>
+					<span class="or">- OR - </span>
+					<a href="#" class="link green">CREATE A PROJECT</a>
+					<span class="or">- OR - </span>
+					<a href="#" class="link">CHECK OUT THE GUIDE</a>
+				</div>
+				<a href="#" class="close"></a>
+			</div>
+			<span class="overlay"></span>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.woocommerce-page.woocommerce-edit-address {
+	#billing_address_2_field {
+
+		input {
+			float: right;
+		}
+	}
+
+	.woocommerce form .form-row .select2-container {
+		width: 69%!important;
+	}
+
+	.select2-selection.select2-selection--single {
+		display: block;
+		height: 34px;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__rendered {
+		line-height: 32px;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__arrow {
+		height: 32px;
+	}
+
+	.select2-container--default .select2-selection--single {
+		border-color: $input-border;
+	}
+}

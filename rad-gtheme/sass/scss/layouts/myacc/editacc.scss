@@ -1,0 +1,25 @@
+.woocommerce-page.woocommerce-edit-account {
+	form {
+		h3 {
+			font-family: $base-medium-font-sans-serif;
+			font-size: $base-font;
+			font-weight: normal;
+			margin-bottom: 25px;
+			text-transform: uppercase;
+		}
+
+		.form-row {
+			width: 100%;
+			padding-left: 20px;
+		}
+
+		.title {
+			margin-top: 11px;
+		}
+
+		input.button {
+			margin-right: 16.85%;
+            margin-left: auto;
+		}
+	}
+}

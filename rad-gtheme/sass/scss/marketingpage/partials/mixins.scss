@@ -1,0 +1,769 @@
+/// #1. Horizontally CENTERS block elements
+/// #2. When using PSEUDO element ::before ::after
+/// #3. Setting STYLES for a FONT, assuming you have already included the font
+/// #4. PLACEHOLDER for input fields
+/// #5. Some default BREAKPOINTS setup that work, time saver while keeping your breakpoints consistent
+/// #6. Given a font size in pixels, reproduces that FONT-SIZE in rems.
+/// #7. Given an OPACITY value, generates that value as well as a way to display that opacity value in Internet Explorer 8 and 9.
+/// #8. Positions ABSOLUTELY POSITIONED elements
+/// #9. Transitions
+/// #10 Box sizing
+/// #11 Setting a POSITION of an element
+/// #11.1   absolute position
+/// #11.2   fixed
+/// #11.3   relative
+/// #12. Vendor prefixing made easy with full control over prefixes
+/// #13. Show the retina images on retina-friendly devices only
+/// #14. Horizontally and vertically centers absolute block elements
+/// #15. Margins
+/// #16. Paddings
+/// #17.
+/// #18.
+/// #19.
+/// #20. 
+//font-family
+
+
+@mixin body-font {
+  font-size: $base-font;
+  font-family: $base-font-sans-serif;
+  font-weight: normal;
+  letter-spacing: $letter-spacing2;
+}
+
+@mixin subheader-font {
+  font-size: $subheader-font;
+  font-family: $base-medium-font-sans-serif;
+  font-weight: normal;
+  letter-spacing: $letter-spacing2;
+}
+
+@mixin h2 {
+  font-size: $header-h2;
+  font-family: $base-medium-font-sans-serif;
+  font-weight: normal;
+  letter-spacing: $letter-spacing1;
+}
+
+@mixin body-font-light {
+  font-size: $base-font;
+  font-family: $base-light-font-sans-serif;
+  font-weight: normal;
+  letter-spacing: $letter-spacing1;
+}
+
+
+/// #1. Horizontally centers block elements
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @include center-block;
+///   }
+/// @example css - Result
+///   .foo {
+///     display: block;
+///     margin-left: auto;
+///     margin-right: auto;
+///   }
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+///
+//// #2. When using ::before and ::after you'll always need these three
+///
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+
+///
+//// #3. Setting styles for a font, assuming you have already included the font
+///
+
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false) {
+    //font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+
+///
+/// #4. Placeholder for input fields
+///
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+///
+/// #5. Some default breakpoints setup that work, time saver while keeping your breakpoints consistent
+///
+
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "sm-comp":      1100px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+$supported: true!default; // this makes this stylesheet output media queries from our mixin
+
+@mixin breakpoint($screenWidth, $support: $supported) {
+  @if $support == true {
+    // output the mixin content inside of a media query
+      @media screen and (min-width: $screenWidth) {
+            @content;
+        }
+  }
+  @else {
+    // output ALL the style content inside the mixin, without a media query
+    @content;
+  }
+}
+
+///
+//// #6. Given a font size in pixels, reproduces that font size in rems.
+///
+///  .foo {
+///     @include font-size(16px);
+///   }
+/// @example css - Result
+///   .foo {
+///     font-size: 16px;
+///     font-size: 1rem;
+///   }
+
+@mixin font-size($size) {
+  @if unitless($size) {
+    $size: $size * 1px;
+  }
+
+  font-size: $size;
+  font-size: ($size / $base-font-size) * 1rem;
+}
+
+///
+//// #7. Given an opacity value, generates that value as well as a way to display that opacity value in Internet Explorer 8 and 9.
+///
+///   .foo {
+///     @include opacity(0.5);
+///   }
+/// @example css - Result
+///   .foo {
+///     opacity: 0.5;
+///     filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#50)";
+///   }
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100})";
+}
+
+
+///
+//// #8. Positions absolute pos elements
+///
+
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+                    top: $top;
+                    right: $right;
+                    bottom: $bottom;
+                    left: $left;
+                    position: absolute;
+                }
+
+
+///
+//// #9. Transitions
+///
+
+@mixin transition($transition-property, $transition-time, $method) {
+                    -webkit-transition: $transition-property $transition-time $method;
+                    -moz-transition: $transition-property $transition-time $method;
+                    -ms-transition: $transition-property $transition-time $method;
+                    -o-transition: $transition-property $transition-time $method;
+                    transition: $transition-property $transition-time $method;
+                }
+
+///
+//// #10. Box sizing
+///
+
+@mixin box-sizing($box-model) {
+                    -webkit-box-sizing: $box-model; // Safari <= 5
+                    -moz-box-sizing: $box-model; // Firefox <= 19
+                    box-sizing: $box-model;
+                }
+
+///
+/// #11. Setting a position of an element
+///
+/// .menu li {
+///   @include relative;
+/// }
+///
+/// .sub-menu {
+///   @include absolute(top 100% left 0);
+/// }
+///
+/// .sticky-bar {
+///   @include fixed(top 0 left 0);
+/// }
+
+@mixin position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+  position: $position;
+}
+
+///
+/// #11.1 Setting a position of an element
+///
+
+@mixin absolute($args: '') {
+  @include position(absolute, $args);
+}
+
+///
+/// #11.2 Setting a position of an element
+///
+
+@mixin fixed($args: '') {
+  @include position(fixed, $args);
+}
+
+///
+/// #11.3 Setting a position of an element
+///
+
+@mixin relative($args: '') {
+  @include position(relative, $args);
+}
+
+
+///
+/// #12. Vendor prefixing made easy with full control over prefixes
+///
+
+@mixin prefix($property, $value, $vendors: webkit moz ms o, $default: true) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  @if $default {
+    #{$property}: #{$value};
+  }
+}
+
+
+///
+/// #13. Show the retina images on retina-friendly devices only:
+///
+/// .logo {
+/// background-image: url("img/logo.png");
+///   @include retina("img/logo@2x.png", 100px, 21px);
+/// }
+
+@mixin retina($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+    /* Serving 2x image on Retina display */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+///
+/// #14. Horizontally and vertically centers block elements
+///
+/// Horizontally and vertically centers block elements
+/// Important: you must have a parent element with `position: relative`.
+///   .foo {
+///     @include center-both;
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     top: 50%;
+///     left: 50%;
+///     -webkit-transform: translate(-50%, -50%);
+///     -ms-transform: translate(-50%, -50%);
+///     transform: translate(-50%, -50%);
+///   }
+@mixin center-vertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
+
+
+///
+/// #15. Margin longhand version
+///
+
+@mixin margin-all($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+
+///
+/// #16. Padding longhand version
+///
+@mixin padding-all($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+///
+/// #17. Padding longhand version
+///
+@mixin selected-text($selected-text-bg, $selected-text-col) {
+    ::-moz-selection {
+        background: $selected-text-bg;
+        color: $selected-text-col;
+        text-shadow: none;
+    }
+    ::selection {
+        background: $selected-text-bg;
+        color: $selected-text-col;
+        text-shadow: none;
+    }
+}
+
+
+///
+/// #18. Flexbox Containers
+///
+/// The 'flex' value causes an element to generate a block-level flex
+/// container box.
+///
+/// The 'inline-flex' value causes an element to generate a inline-level
+/// flex container box. 
+///
+/// display: flex | inline-flex
+///
+/// http://w3.org/tr/css3-flexbox/#flex-containers
+///
+/// (Placeholder selectors for each type, for those who rather @extend)
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+%flexbox { @include flexbox; }
+
+
+///
+/// #19. Flexbox Wrap
+///
+/// The 'flex-wrap' property controls whether the flex container is single-line
+/// or multi-line, and the direction of the cross-axis, which determines
+/// the direction new lines are stacked in. 
+///
+/// Values: nowrap | wrap | wrap-reverse
+/// Default: nowrap
+///
+
+@mixin flex-wrap($value: nowrap) {
+  // No Webkit Box fallback.
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else { 
+    -ms-flex-wrap: $value; 
+  }
+  flex-wrap: $value;
+}
+
+
+///
+/// #20. Flexbox Justify Content
+///
+/// The 'justify-content' property aligns flex items along the main axis
+/// of the current line of the flex container. This is done after any flexible
+/// lengths and any auto margins have been resolved. Typically it helps distribute
+/// extra free space leftover when either all the flex items on a line are
+/// inflexible, or are flexible but have reached their maximum size. It also
+/// exerts some control over the alignment of items when they overflow the line.
+///
+/// Note: 'space-*' values not supported in older syntaxes.
+///
+/// Values: flex-start | flex-end | center | space-between | space-around
+/// Default: flex-start
+///
+
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;    
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+  // Shorter version:
+  @mixin flex-just($args...) { @include justify-content($args...); }
+
+
+///
+/// #21. Transitions
+///
+
+  @mixin trans {
+    transition: (all .5s ease);
+  }
+
+
+///
+/// #22. Flexbox Align Items
+///
+/// Flex items can be aligned in the cross axis of the current line of the
+/// flex container, similar to 'justify-content' but in the perpendicular
+/// direction. 'align-items' sets the default alignment for all of the flex
+/// container's items, including anonymous flex items. 'align-self' allows
+/// this default alignment to be overridden for individual flex items. (For
+/// anonymous flex items, 'align-self' always matches the value of 'align-items'
+/// on their associated flex container.) 
+///
+/// Values: flex-start | flex-end | center | baseline | stretch
+/// Default: stretch
+///
+/// 
+
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+
+///
+/// #23. Flexbox Grow
+///
+/// The 'flex-grow' property sets the flex grow factor. Negative numbers
+/// are invalid.
+///
+/// Default: 0
+///
+
+@mixin flex-grow($int: 0) {
+  -webkit-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -moz-flex-grow: $int;
+  -ms-flex-positive: $int;
+  flex-grow: $int;
+}
+
+
+///
+/// #24. Border-radius
+///
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+
+
+
+
+// @include keyframes(slide-down) {
+//   0% { opacity: 1; }
+//   90% { opacity: 0; }
+// }
+
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('slide-down 5s 3');
+// }
+///
+/// #25. Keyframes Animation
+///
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+
+///
+/// #26. Animation
+///
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+
+
+/// poly-fluid-sizing
+/// Generate linear interpolated size values through multiple break points
+/// @param $property - A string CSS property name
+/// @param $map - A SASS map of viewport unit and size value pairs
+/// @requires function linear-interpolation
+/// @requires function map-sort
+/// @example
+///   @include poly-fluid-sizing('font-size', (576px: 22px, 768px: 24px, 992px: 34px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@mixin poly-fluid-sizing($property, $map) {
+  // Get the number of provided breakpoints
+  $length: length(map-keys($map));
+  
+  // Error if the number of breakpoints is < 2
+  @if ($length < 2) {
+    @error "poly-fluid-sizing() $map requires at least values"
+  }
+
+  // Sort the map by viewport width (key)
+  $map: map-sort($map);
+  $keys: map-keys($map);
+
+  // Minimum size
+  #{$property}: map-get($map, nth($keys,1));
+  
+  // Interpolated size through breakpoints
+  @for $i from 1 through ($length - 1) {
+    @media (min-width:nth($keys,$i)) {
+      #{$property}: linear-interpolation((nth($keys,$i): map-get($map, nth($keys,$i)), nth($keys,($i+1)): map-get($map, nth($keys,($i + 1)))));
+    }
+  }
+  
+  // Maxmimum size
+  @media (min-width:nth($keys,$length)) {
+    #{$property}: map-get($map, nth($keys,$length));
+  }
+}
+
+/// linear-interpolation
+/// Calculate the definition of a line between two points
+/// @param $map - A SASS map of viewport widths and size value pairs
+/// @returns A linear equation as a calc() function
+/// @example
+///   font-size: linear-interpolation((320px: 18px, 768px: 26px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function linear-interpolation($map) {
+  $keys: map-keys($map);
+  @if (length($keys) != 2) {
+    @error "linear-interpolation() $map must be exactly 2 values";
+  }
+  // The slope
+  $m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1)))/(nth($keys, 2) - nth($keys,1));
+  
+  // The y-intercept
+  $b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
+  
+  // Determine if the sign should be positive or negative
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+  
+  @return calc(#{$m*100}vw #{$sign} #{$b});
+}
+
+/// list-sort
+/// Sort a SASS list
+/// @param $list - A SASS list
+/// @returns A sorted SASS list
+/// @requires function list-remove
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function list-sort($list) {
+  $sortedlist: ();
+  @while length($list) > 0 {
+    $value: nth($list,1);
+    @each $item in $list {
+      @if $item < $value {
+        $value: $item;
+      }
+    }
+    $sortedlist: append($sortedlist, $value, 'space');
+    $list: list-remove($list, index($list, $value));
+  }
+  @return $sortedlist;
+}
+
+/// map-sort
+/// Sort map by keys
+/// @param $map - A SASS map
+/// @returns A SASS map sorted by keys
+/// @requires function list-sort
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function map-sort($map) {
+  $keys: list-sort(map-keys($map));
+  $sortedMap: ();
+  @each $key in $keys {
+    $sortedMap: map-merge($sortedMap, ($key: map-get($map, $key)));
+  }
+  @return $sortedMap;
+}
+
+/// list-remove
+/// Remove an item from a list
+/// @param $list - A SASS list
+/// @param $index - The list index to remove
+/// @returns A SASS list
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function list-remove($list, $index) {
+  $newList: ();
+  @for $i from 1 through length($list) {
+    @if $i != $index {
+      $newList: append($newList, nth($list,$i), 'space');
+    }
+  }
+  @return $newList;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+///method of using psuedo elements to maintain an elements aspect ratio, even as it scales
+///The mixin assumes you'll be nesting an element with the class of content inside your initial block. Like this:
+///<div class="sixteen-nine">
+///  <div class="content">
+///    insert content here
+///    this will maintain a 16:9 aspect ratio
+///  </div>
+///</div>
+///.sixteen-nine {
+///  @include aspect-ratio(16, 9);
+///}
+
+@mixin aspect-ratio-two($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// Syntax:
+// @include aspect-ratio($ratio or $width, $height);
+// .class { @include aspect-ratio(); }            // No arguments defaults to a 1:1 ratio
+// .class { @include aspect-ratio(16, 9); }       // Width and height     
+// .class { @include aspect-ratio(1.777778); }    // Ratio (calculated width/height)         
+// .class { @include aspect-ratio(4px, 3px); }    // Comparable units 
+// .class { @include aspect-ratio($ratio: 1.2); } // Keywords 
+
+@mixin aspect-ratio($arglist... /*$ratio or $width, $height*/){
+    $map : keywords($arglist);
+    $height: map-get($map, height) or nth-or-null($arglist, 2);
+    $width:  map-get($map, width)  or nth-or-null($arglist, 1);
+    $ratio:  map-get($map, ratio)  or if($width and $height, $width/$height, nth-or-null($arglist, 1)) or 1;
+    $padding: 1/$ratio * 100%;
+    &:before { content: ''; /*float:left; */padding-bottom: $padding; margin-right:-100%;}
+    &:after  { content: ''; display:table; clear: both; }
+}
+
+// Helper function 
+// Return null rather than throwing an error if index is outside list range.    
+@function nth-or-null($list, $index) {
+  @return if(length($list) >= $index, nth($list, $index), null);
+}    
+
+

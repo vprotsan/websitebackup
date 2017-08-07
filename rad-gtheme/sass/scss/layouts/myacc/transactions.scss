@@ -1,0 +1,48 @@
+.woocommerce-page.woocommerce-orders {
+
+	.woocommerce-orders-table__cell {
+		padding: 0px 12px;
+	}
+
+	thead th span::first-letter {
+		text-transform: uppercase;
+	}
+
+	td {
+		font-size: $base-font;
+		letter-spacing: 1px;
+		
+		a.button {
+			float: left;
+			margin: 14px 0;
+			padding: 9px 24px;
+		}
+	}
+
+	td.woocommerce-orders-table__cell-order-number,
+	th.woocommerce-orders-table__header-order-number {
+		width: 16.57%;
+	}
+
+	td.woocommerce-orders-table__header-order-date,
+	th.woocommerce-orders-table__header-order-date {
+		width: 15.04%;
+	}
+
+	td.woocommerce-orders-table__header-order-status,
+	th.woocommerce-orders-table__header-order-status {
+		width: 14.9%;
+	}
+
+	td.woocommerce-orders-table__header-order-total,
+	th.woocommerce-orders-table__header-order-total {
+		width: 15.18%;
+	}
+
+	td.woocommerce-orders-table__header-order-actions,
+	th.woocommerce-orders-table__header-order-actions {
+		width: 38%;
+	}
+}
+
+

@@ -1,0 +1,48 @@
+
+
+#add_payment_method #payment, 
+.woocommerce-cart #payment, 
+.woocommerce-checkout #payment,
+#add_payment_method #payment div.payment_box {
+	background: none;
+	font-size: $base-font;
+
+	&::before {
+		border: 0;
+		border-color: none;
+	}
+
+	fieldset#wc-stripe-cc-form p {
+		input {
+			@include body-font;
+			margin-right: 0;
+			padding: 1em;
+			text-align: center;
+		}
+	}
+
+	.required {
+		display: block;
+	}
+}
+
+#add_payment_method #payment ul.payment_methods li.payment_method_stripe input[type="radio"] {
+	margin-top: 1.3em;
+	width: auto;
+}
+
+.payment_method_stripe {
+	label {
+		padding: 1em;
+
+		img {
+			display: none;
+		}
+	}
+}
+
+#stripe-payment-data {
+	&>p {
+		margin-left: 1em;
+	}
+}
